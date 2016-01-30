@@ -6,8 +6,10 @@
 #include "gzguts.h"
 
 #if defined(_WIN32) && !defined(__BORLANDC__)
+#include <io.h>
 #  define LSEEK _lseeki64
 #else
+#include <unistd.h>
 #if defined(_LARGEFILE64_SOURCE) && _LFS64_LARGEFILE-0
 #  define LSEEK lseek64
 #else
